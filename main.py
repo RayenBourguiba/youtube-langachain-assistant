@@ -1,16 +1,25 @@
-# This is a sample Python script.
+import streamlit as st
+import langchain_helper as lch
+import textwrap
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+st.title("YTB Assistant")
 
+with st.sidebar:
+    with st.form(key='my_form'):
+        youtube_url = st.sidebar.text_area(
+            label="What is the YouTube video URL?",
+            max_chars=50
+            )
+        query = st.sidebar.text_area(
+            label="Ask me about the video?",
+            max_chars=50,
+            key="query"
+            )
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+        submit_button = st.form_submit_button(label='Submit')
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if query and youtube_url:
+    db = lch.create_vector_db_from_ytb_url(youtube_url)
+    response, docs = lch.get_response_from_query(db, query)
+    st.subheader("Answer:")
+    st.text(textwrap.fill(response, width=100))
