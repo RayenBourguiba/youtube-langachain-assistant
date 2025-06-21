@@ -1,0 +1,65 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+*.env
+
+# Environment variable files
+.env
+.env.*
+
+# Pytest cache
+.pytest_cache/
+
+# MyPy and other cache
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+
+# VSCode settings
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE settings
+.idea/
+*.swp
+
+# Log files and temp
+*.log
+*.tmp
+*.bak
+
+# Coverage reports
+htmlcov/
+.coverage
+coverage.xml
+.cache
+
+# LangChain cache / outputs
+*.langchain*
+langchain.sqlite
+langchain.db
+
+# Local data or app-specific outputs
+data/
+outputs/
+__results__/
+*.csv
+*.json
+*.pkl
+*.db
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
